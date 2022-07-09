@@ -6,6 +6,44 @@
     padding: 0;
 }
 
-body {}
+body {
+    font-family: 'Courier New', Courier, monospace;
+}
 
-header{}
+header {
+    display: flex;
+    padding: 20px 25px 40px 25px;
+}
+
+header h1 {
+    font-size: 40px;
+}
+
+main {
+    padding: 20px 150px;
+    text-align: center;
+}
+
+
+.quiz-content {
+    padding: 50px 80px;
+    margin: 50px;
+    border-style: dashed;
+    border-color: #000000;
+}
+
+.quiz-content h2 {
+    padding-bottom: 50px;
+}
+
+.start-btn {
+    margin-top: 50px;
+    padding: 10px 50px;
+    font-size: 20px;
+}
+
+.highscore-btn {
+    margin-top: 50px;
+    padding: 10px 50px;
+    font-size: 20px;
+}
