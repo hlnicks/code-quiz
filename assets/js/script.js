@@ -11,3 +11,58 @@
 // THEN the game is over
 // WHEN the game is over
 // THEN I can save my initials and score
+// quiz questions
+
+
+var questions = [
+    {
+        title: "question 1",
+        choices: ["choice1", "choice2", "choice3", "choice 4"],
+        answer: "answer"
+    },
+    {
+        title: "question 2",
+        choices: ["choice1", "choice2", "choice3", "choice 4"],
+        answer: "answer"
+    },
+    {
+        title: "question 3",
+        choices: ["choice1", "choice2", "choice3", "choice 4"],
+        answer: "answer"
+    },
+    {
+        title: "question 4",
+        choices: ["choice1", "choice2", "choice3", "choice 4"],
+        answer: "answer"
+    },
+    {
+        title: "question 5",
+        choices: ["choice1", "choice2", "choice3", "choice 4"],
+        answer: "answer"
+    },
+    {
+        title: "question 6",
+        choices: ["choice1", "choice2", "choice3", "choice 4"],
+        answer: "answer"
+    },
+    {
+        title: "question 7",
+        choices: ["choice1", "choice2", "choice3", "choice 4"],
+        answer: "answer"
+    },
+    {
+        title: "question 8",
+        choices: ["choice1", "choice2", "choice3", "choice 4"],
+        answer: "answer"
+    },
+    {
+        title: "question 9",
+        choices: ["choice1", "choice2", "choice3", "choice 4"],
+        answer: "answer"
+    },
+    {
+        title: "question 10",
+        choices: ["choice1", "choice2", "choice3", "choice 4"],
+        answer: "answer"
+    },
+];
