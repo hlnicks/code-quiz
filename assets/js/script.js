@@ -43,13 +43,9 @@ var questions = [
         title: "question 9",
         choices: ["choice1", "choice2", "choice3", "choice 4"],
         answer: "answer"
-    },
-    {
-        title: "question 10",
-        choices: ["choice1", "choice2", "choice3", "choice 4"],
-        answer: "answer"
-    },
+    }
 ];
+
 var score = 0;
 var questionList = 0;
 var timerDiv = document.querySelector("#timerDiv");
@@ -85,12 +81,12 @@ timer.addEventListener("click", function () {
     if (holdInterval === 0) {
         holdInterval = setInterval(function () {
             timeLeft--;
-            timerDiv.textContent = "Time: " + timeLeft;
+            timerDiv.textContent = "Time Remaining: " + timeLeft;
 
             if (timeLeft <= 0) {
                 clearInterval(holdInterval);
-                timesUp();
-                timerDiv.textContent = "Time's up!";
+                finishQuiz();
+                timerDiv.textContent = "Time's Up!";
             }
         }, 1000);
     }
@@ -112,6 +108,14 @@ function compare(event) {
             timeLeft = timeLeft - penalty;
             createDiv.textContent = "Wrong! The correct answer is:  " + questions[questionList].answer;
         }
-
     }
+    // lets user know what question theyre on
+    questionList++;
+    if (questionList >= questions.length) {
+        finishQuiz();
+        createDiv.textContent = "You got  " + score + "/" + questions.length + " correct!";
+    } else {
+        render(questionList);
+    }
+    quizContent.appendChild(createDiv);
 }
