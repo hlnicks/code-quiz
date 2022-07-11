@@ -20,7 +20,7 @@ main {
 }
 
 
-.quiz-content {
+.wrapper {
     padding: 50px 80px;
     margin: 50px;
     border-style: dashed;
@@ -45,4 +45,8 @@ main {
 .btn {
     padding: 8px 21px;
     font-size: 18px;
+}
+
+#timer {
+    
 }
