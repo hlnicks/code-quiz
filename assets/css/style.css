@@ -6,7 +6,6 @@
 }
 
 header {
-    display: flex;
     padding: 10px 0px 10px 20px;
 }
 
@@ -16,7 +15,6 @@ header h1 {
 
 main {
     padding: 20px 150px;
-    text-align: center;
 }
 
 
@@ -25,7 +23,13 @@ main {
     margin: 50px;
     border-style: dashed;
     border-color: #000000;
+    text-align: center;
 }
+
+#timerDiv {
+    font-size: 20px;
+}
+
 
 .quiz-content h2 {
     padding-bottom: 10px;
@@ -45,8 +49,4 @@ main {
 .btn {
     padding: 8px 21px;
     font-size: 18px;
-}
-
-#timer {
-    
 }
