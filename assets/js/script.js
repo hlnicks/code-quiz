@@ -1,48 +1,60 @@
 var questions = [
     {
-        title: "question 1",
-        choices: ["choice1", "choice2", "choice3", "choice 4"],
-        answer: "answer"
+        title: "1.  A ________ is a block of code that performs a specific task.",
+        choices: ["variable", "function", "boolean", "value"],
+        answer: "function"
     },
     {
-        title: "question 2",
-        choices: ["choice1", "choice2", "choice3", "choice 4"],
-        answer: "answer"
+        title: "2.  What is a variable?",
+        choices: ["Data in an application at a specific point in time.",
+        "A named location for a value that gets stored in the browser's memory when a program is run.",
+        "A structure in code where the same action(s) occur multiple times in a row.",
+        "A type of function that returns the value of another function."],
+        answer: "A named location for a value that gets stored in the browser's memory when a program is run."
     },
     {
-        title: "question 3",
-        choices: ["choice1", "choice2", "choice3", "choice 4"],
-        answer: "answer"
+        title: "3.  What is the DOM?",
+        choices: ["A Cloud based repository.",
+         "A JavaScript library.",
+         "A data representation of the objects that comprise the structure and content of a document on the web.",
+         "A callback function"],
+        answer: "A data representation of the objects that comprise the structure and content of a document on the web."
     },
     {
-        title: "question 4",
-        choices: ["choice1", "choice2", "choice3", "choice 4"],
-        answer: "answer"
+        title: "4.  _________ is a plain-language description of the steps that an algorithm or application must complete.",
+        choices: ["HTML", "Pseudocode", "console.log()", "Debugger"],
+        answer: "Pseudocode"
     },
     {
-        title: "question 5",
-        choices: ["choice1", "choice2", "choice3", "choice 4"],
-        answer: "answer"
+        title: "5.  What does an array do?",
+        choices: ["Links a JavaScript file to an HTML file.",
+        "Stores multiple items under a single variable name.",
+        "Stores data is the browser’s memory.",
+        "Refers back to the beginning of a function."],
+        answer: "Stores multiple items under a single variable name."
     },
     {
-        title: "question 6",
-        choices: ["choice1", "choice2", "choice3", "choice 4"],
-        answer: "answer"
+        title: "6.  Which of the following is a boolean operator?",
+        choices: ["AND", "OR", "NOT", "All of the Above"],
+        answer: "All of the Above"
     },
     {
-        title: "question 7",
-        choices: ["choice1", "choice2", "choice3", "choice 4"],
-        answer: "answer"
+        title: "7.  True or False: The DOM is built into JavaScript",
+        choices: ["True", "False"],
+        answer: "False"
     },
     {
-        title: "question 8",
-        choices: ["choice1", "choice2", "choice3", "choice 4"],
-        answer: "answer"
+        title: "8.  What does || stand for?",
+        choices: ["IF", "AND", "OR", "BUT"],
+        answer: "OR"
     },
     {
-        title: "question 9",
-        choices: ["choice1", "choice2", "choice3", "choice 4"],
-        answer: "answer"
+        title: "9.  What is JSON?",
+        choices: ["Another term for JavaScript",
+        "A format for organizing data that’s transferred from one place to another.",
+        "A format that is only compatible with CSS",
+        "A function that retrieves data from localStorage"],
+        answer: "A format for organizing data that’s transferred from one place to another."
     }
 ];
 
@@ -109,13 +121,69 @@ function compare(event) {
             createDiv.textContent = "Wrong! The correct answer is:  " + questions[questionList].answer;
         }
     }
-    // lets user know what question theyre on
     questionList++;
     if (questionList >= questions.length) {
         finishQuiz();
-        createDiv.textContent = "You got  " + score + "/" + questions.length + " correct!";
+        createDiv.textContent = "";
     } else {
         render(questionList);
     }
     quizContent.appendChild(createDiv);
 }
+
+
+function finishQuiz() {
+    quizContent.innerHTML = "";
+    timerDiv.innerHTML = "";
+
+    var createH2 = document.createElement("H2");
+    createH2.setAttribute("id", "createH2");
+    createH2.textContent = "Let's see how you did!"
+    quizContent.appendChild(createH2);
+
+    var createH4 = document.createElement("H4");
+    createH4.setAttribute("id", "createH4");
+    createH2.textContent = "You got  " + score + "/" + questions.length + " correct!"
+    quizContent.appendChild(createH4);
+
+    var createP = document.createElement("p");
+    createP.setAttribute("id", "createP");
+    quizContent.appendChild(createP);
+
+    if (timeLeft >= 0) {
+        var timeRemaining = timeLeft;
+        var createP2 = document.createElement("p");
+        clearInterval(holdInterval);
+        createP.textContent = "Your final score is: " + timeRemaining;
+
+        quizContent.appendChild(createP2);
+    }
+
+    var createLabel = document.createElement("label");
+    createLabel.setAttribute("id", "createLabel");
+    createLabel.textContent = "Enter your Initials: ";
+
+    quizContent.appendChild(createLabel);
+
+    var createInput = document.createElement("input");
+    createInput.setAttribute("type", "text");
+    createInput.setAttribute("id", "initials");
+    createInput.textContent = "";
+
+    quizContent.appendChild(createInput);
+
+    var createSubmit = document.createElement("button");
+    createSubmit.setAttribute("type", "submit");
+    createSubmit.setAttribute("id", "Submit");
+    createSubmit.textContent = "Submit";
+
+    quizContent.appendChild(createSubmit);
+
+    // user can submit initials to highscore on localstorage
+    createSubmit.addEventListener("click", function () {
+        var initials = createInput.value;
+
+    });
+}
+
+
