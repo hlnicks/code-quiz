@@ -119,7 +119,7 @@ function compare(event) {
             answerDiv.textContent = "Correct!";
         } else {
             timeLeft = timeLeft - penalty;
-            answerDiv.textContent = "Wrong! The correct answer is:  " + questions[questionList].answer;
+            answerDiv.textContent = "Incorrect! The correct answer is:  " + questions[questionList].answer;
         }
     }
     questionList++;
