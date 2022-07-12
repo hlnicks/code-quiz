@@ -1,0 +1,60 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
+header {
+    padding: 10px 0px 10px 20px;
+    font-size: 20px;
+}
+
+
+body {
+    background-color: aliceblue;
+}
+
+
+main {
+    padding: 20px 150px;
+}
+
+
+section {
+    padding: 0px 130px;
+}
+
+
+.wrapper {
+    margin: 50px;
+    border-style: dashed;
+    border-color: #000000;
+    text-align: center;
+    background-color: #ffffff;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+
+#highScoresDiv {
+    padding: 50px 80px;
+    font-size: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+}
+
+
+.btn {
+    padding: 8px 21px;
+    font-size: 18px;
+}
+
+
+#highScoresDiv ol {
+    padding: 50px 0px 70px 0px;
+}

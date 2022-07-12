@@ -17,7 +17,7 @@ var questions = [
         choices: ["A Cloud based repository.",
          "A JavaScript library.",
          "A data representation of the objects that comprise the structure and content of a document on the web.",
-         "A callback function"],
+         "A callback function."],
         answer: "A data representation of the objects that comprise the structure and content of a document on the web."
     },
     {
@@ -57,17 +57,17 @@ var questions = [
         answer: "A format for organizing data that’s transferred from one place to another."
     }
 ];
-
 var score = 0;
 var questionList = 0;
 var timerDiv = document.querySelector("#timerDiv");
 var timer = document.querySelector("#startBtn");
 var quizContent = document.querySelector("#quizContent");
 var wrapper = document.querySelector("#wrapper");
-var timeLeft = 70;
+var timeLeft = 60;
 var holdInterval = 0;
 var penalty = 7;
 var makeList = document.createElement("ul");
+
 
 // renders questions/answers in quizContent
 function render(questionList) {
@@ -87,6 +87,7 @@ function render(questionList) {
         listItem.addEventListener("click", (compare));
     })
 }
+
 
 // triggers time countdown once start button is clicked
 timer.addEventListener("click", function () {
@@ -111,24 +112,24 @@ function compare(event) {
     var element = event.target;
     if (element.matches("li")) {
 
-        var createDiv = document.createElement("div");
-        createDiv.setAttribute("id", "createDiv");
+        var answerDiv = document.createElement("div");
+        answerDiv.setAttribute("id", "answerDiv");
         if (element.textContent == questions[questionList].answer) {
             score++;
-            createDiv.textContent = "Correct!";
+            answerDiv.textContent = "Correct!";
         } else {
             timeLeft = timeLeft - penalty;
-            createDiv.textContent = "Wrong! The correct answer is:  " + questions[questionList].answer;
+            answerDiv.textContent = "Wrong! The correct answer is:  " + questions[questionList].answer;
         }
     }
     questionList++;
     if (questionList >= questions.length) {
         finishQuiz();
-        createDiv.textContent = "";
+        answerDiv.textContent = "";
     } else {
         render(questionList);
     }
-    quizContent.appendChild(createDiv);
+    quizContent.appendChild(answerDiv);
 }
 
 
@@ -174,7 +175,7 @@ function finishQuiz() {
 
     var createSubmit = document.createElement("button");
     createSubmit.setAttribute("type", "submit");
-    createSubmit.setAttribute("id", "Submit");
+    createSubmit.setAttribute("id", "submitBtn");
     createSubmit.textContent = "Submit";
 
     quizContent.appendChild(createSubmit);
@@ -183,9 +184,6 @@ function finishQuiz() {
     createSubmit.addEventListener("click", function () {
         var initials = createInput.value;
         if (initials === null) {
-
-            window.alert("No value entered!");
-        
         } else {
             var finalScore = {
                 initials: initials,
@@ -201,12 +199,8 @@ function finishQuiz() {
             savedScores.push(finalScore);
             var newScore = JSON.stringify(savedScores);
             localStorage.setItem("savedScores", newScore);
-        
-        
+
             window.location.replace("./highscores.html");
         }
-
     });
 }
-
-
