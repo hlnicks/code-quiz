@@ -7,16 +7,24 @@
 
 header {
     padding: 10px 0px 10px 20px;
+    font-size: 20px;
 }
 
 header h1 {
-    font-size: 40px;
+    padding-bottom: 10px;
 }
+
 
 main {
     padding: 20px 150px;
 }
 
+#createH1 {
+    padding-bottom: 20px;
+}
+
+/* #createH2 {
+} */
 
 .wrapper {
     padding: 50px 80px;
@@ -40,11 +48,7 @@ main {
     padding-bottom: 50px;
 }
 
-.start-btn {
-    margin-top: 50px;
-    padding: 10px 50px;
-    font-size: 20px;
-}
+
 
 .btn {
     padding: 8px 21px;

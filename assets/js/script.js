@@ -136,15 +136,15 @@ function finishQuiz() {
     quizContent.innerHTML = "";
     timerDiv.innerHTML = "";
 
-    var createH2 = document.createElement("H2");
-    createH2.setAttribute("id", "createH2");
-    createH2.textContent = "Let's see how you did!"
-    quizContent.appendChild(createH2);
+    var createH1 = document.createElement("H2");
+    createH1.setAttribute("id", "createH1");
+    createH1.textContent = "Let's see how you did:"
+    quizContent.appendChild(createH1);
 
-    var createH4 = document.createElement("H4");
-    createH4.setAttribute("id", "createH4");
+    var createH2 = document.createElement("H3");
+    createH2.setAttribute("id", "createH2");
     createH2.textContent = "You got  " + score + "/" + questions.length + " correct!"
-    quizContent.appendChild(createH4);
+    quizContent.appendChild(createH2);
 
     var createP = document.createElement("p");
     createP.setAttribute("id", "createP");
@@ -182,6 +182,29 @@ function finishQuiz() {
     // user can submit initials to highscore on localstorage
     createSubmit.addEventListener("click", function () {
         var initials = createInput.value;
+        if (initials === null) {
+
+            window.alert("No value entered!");
+        
+        } else {
+            var finalScore = {
+                initials: initials,
+                score: timeRemaining
+            }
+            console.log(finalScore);
+            var savedScores = localStorage.getItem("savedScores");
+            if (savedScores === null) {
+                savedScores = [];
+            } else {
+                savedScores = JSON.parse(savedScores);
+            }
+            savedScores.push(finalScore);
+            var newScore = JSON.stringify(savedScores);
+            localStorage.setItem("savedScores", newScore);
+        
+        
+            window.location.replace("./highscores.html");
+        }
 
     });
 }
